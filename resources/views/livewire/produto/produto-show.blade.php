@@ -1,3 +1,3 @@
 <div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
+    {{-- Because she competes with no one, no one can compete with her. --}}
 </div>
