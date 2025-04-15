@@ -15,21 +15,22 @@ class Index extends Component
 
     protected $queryString = [
         'search' => ['except' => ''],
-        'perPage' =>  ['except' => 10]
+        'perPage' => ['except' => 10],
     ];
 
     public function render()
     {
         $clientes = Cliente::where('nome', 'like', "%{$this->search}%")
-        ->orWhere('email', 'like', "%{$this->search}%")
-        ->orWhere('cpf', 'like', "%{$this->search}%")
-        ->paginate($this->perPage);
+            ->orWhere('email', 'like', "%{$this->search}%")
+            ->orWhere('cpf', 'like', "%{$this->search}%")
+            ->paginate($this->perPage);
 
         return view('livewire.clientes.index', compact('clientes'));
     }
 
-    public function delete($id){
-        Cliente::FindOrFail($id)->delete();
-        session()->flash('message', 'Cliente Deletado com sucesso');
+    public function delete($id)
+    {
+        Cliente::findOrFail($id)->delete();
+        session()->flash('message', 'Cliente deletado com sucesso!');
     }
 }
